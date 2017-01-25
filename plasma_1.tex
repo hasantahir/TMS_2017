@@ -1,0 +1,370 @@
+\documentclass[conference, 10pt]{IEEEtran}
+
+
+%
+\usepackage[T1]{fontenc} % optional
+\usepackage[cmex10]{amsmath}
+\usepackage{calc}
+\usepackage{amsfonts} % to load math symbols
+\usepackage{mdwmath}
+\usepackage{commath}
+\usepackage{physics} % For using the oridnary derivative nomenclature
+\usepackage{mdwmath}
+\usepackage{mdwtab}
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{hyperref}
+% % The following is done to hide ugly color boxes around the links
+\usepackage{xcolor}
+\hypersetup{
+colorlinks,
+linkcolor={red!50!black},
+citecolor={blue!50!black},
+urlcolor={blue!80!black}
+}
+
+
+\usepackage{booktabs}
+\usepackage{standalone}
+\usepackage{filecontents}
+
+\usepackage{tabularx,colortbl}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage[americanresistors,americaninductors]{circuitikz}
+\usepackage{tikz-dimline} % For dimensional drawing
+\tikzset{every picture/.append style={font=\normalsize}}
+\usepackage{relsize}
+
+\tikzset{fontscale/.style = {font=\relsize{#1}}
+}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=newest}
+%% the following commands are sometimes needed
+\usetikzlibrary{plotmarks}
+\usepackage{grffile}
+\usepackage{mathtools,amssymb,lipsum}
+\ifCLASSOPTIONcompsoc
+\usepackage[caption=false,font=normalsize,labelfon
+t=sf,textfont=sf]{subfig}
+\else
+\usepackage[caption=false,font=footnotesize]{subfi
+g}
+\fi
+
+
+
+%%%%%%%%%%
+%%%%%%%%%% TIPS and TRICKS
+%%%%%%%%%%
+%
+% ------------------------------- Useful Tricks Learnt
+% Use ={}& to align subequations to the left
+
+% Use = for single equations
+
+% Use &= for split equations
+
+% Use commath package to properly write differential operators and derivatives.
+
+% Use \int\limits to nicely put integral limits
+
+% For long equations, use align environment with \notag\\ as a linebreak.
+
+% To hide section numbers, place an asterisk after the section, e.g., \section*{}
+
+% Put comments % in between the lines in order to avoid forming a new paragraph.
+
+% To enter special characters into Inkspace figures, use Ctrl+U and then enter       the unicode. e.g., for \times symbol, the unicode is U+0D7. So the key entry would be Ctrl+U U+0d7 and then press enter.
+
+% Put \eqref instead or \ref to reference equations. This will automatically put parantheses around the eq. number. amsmath package required.
+%
+% ----------------- To compile with references use the following order in Shell"
+% 1. pdflatex filename.tex
+% 2. bibtex filename (no extension)
+% 3. bibtex filename (no extension)
+% 4. pdflatex filename.tex
+% -----------------
+
+% Personal definitions
+% Operators
+
+\newcommand{\V}[1]{\v} % vectors \v{c}
+\renewcommand{\v}[1]{\mathbf{#1}} % vectors
+\newcommand{\ti}[1]{\tilde{#1}} % spectral representation
+
+% Symbols
+\renewcommand{\O}{\omega}  % omega
+\newcommand{\E}{\varepsilon}  % epsilon
+\renewcommand{\u}{\mu}  % mu
+\newcommand{\p}{\rho}  % rho
+\newcommand{\x}{\times}  % times
+\renewcommand{\inf}{\infty}  % infinity
+\newcommand{\infint}{\int\limits_{-\inf}^\inf} % integral by R
+\renewcommand{\del}{\nabla}  % nabla operator
+\renewcommand{\^}{\hat}  % unit vector
+% \newcommand*\diff{\mathop{}\!\mathrm{d}} % Define differential operator
+
+
+
+
+
+
+
+\begin{document}
+
+\title{An Integral Equation Scheme for Plasma based Thin Sheets}
+
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Hasan T. Abbas}
+\IEEEauthorblockA{Department of Electrical and\\
+Computer Engineering\\
+Texas A\&M University\\
+College Station, TX 77843-3128\\
+Email: hasantahir@tamu.edu}
+\and
+\IEEEauthorblockN{Robert D. Nevels}
+\IEEEauthorblockA{Department of Electrical and\\
+Computer Engineering\\
+Texas A\&M University\\
+College Station, TX 77843-3128\\
+Email: nevels@ece.tamu.edu}
+}
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+% make the title area
+\maketitle
+
+
+%
+\begin{abstract}
+  %\boldmath
+  We discuss the dispersion relation of a thin plasma sheet embedded in a stack semiconductor materials. The miniaturization of antennas and microwave devices is presentes in light of the dispersion relation. Numerical results are presented to illustrate the scattering properties of the plasma sheet.
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\section{Introduction}
+With the advancements in semiconductor manufacturing techniques, our perception of materials existing only in a volumetric sensse has changed. Of late, two-dimensional materials have been discovered. Graphene may the first that springs to mind but owing to difficulties in its engineering, it has created a divided opinion regards to its usage in the scientific community, although it has remarkable electrical and mechanical properties. Looking beyond, there are other 2D materials that inherently exist in commonplace transistor devices due to formation of an extremely thin layer of free electrons in the stack of multilayer semiconductor substrate. The electrical properties have to be considered in a different way than traditional bulk materials where permittivity and permeability are customarily considered in a bulk sense. Most commercial electromagnetic simulation tools model thin structures with equivalent surface conductivity where the thickness is incorporated in computing the corresponding parameters.
+
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\section{Theory}
+
+\subsection{Derivation of Dispersion Relation}
+%
+Consider two dielectric half-planes of permittivity $\E_1$ and $\E_2$ respectively, separated by an infinitesimally thin sheet of charge at $z = 0$. The propagation constants for the materials can be found starting with field expressions for transverse magnetic (TM) plane wave as shown in \ref{}. In region 1 ($z > 0$):
+%
+\begin{subequations}
+  \begin{align}
+    \v E_1 &=  \left(\v{\^{x}} E_{x1} + \v{\^{y}} E_{z1} \right) e^{-j (k_x x + k_{z1}z)},
+    \label{eq:E_1}\\
+    \v H_1 &=  \v{\^{y}} H_{y1} e^{-j (k_x x + k_{z1}z)}
+    \label{eq:H_1}
+  \end{align}
+  \label{eq:r_1}
+\end{subequations}
+%
+Similarly, in region 2 ($z < 0$), the fields are expressed as:
+%
+\begin{subequations}
+  \begin{align}
+    \v E_2 &=  \left(\v{\^{x}} E_{x2} + \v{\^{y}} E_{z2} \right) e^{-j (k_x x - k_{z2}z)},
+    \label{eq:E_1}\\
+    \v H_2 &=  \v{\^{y}} H_{y2} e^{-j (k_x x - k_{z1}z)}.
+    \label{eq:H_1}
+  \end{align}
+  \label{eq:r_1}
+\end{subequations}
+%
+where $k_x$ and $k_{zi}$ for $i = 1,2$ are the $x$ and $z$ directed propagation constants respectively, related by the dispsersion equation:
+%
+\begin{equation}
+  \begin{split}
+    k_{zi} & = \sqrt{k_i^2 - k_x^2} \\
+    & = \sqrt{\left(\frac{\O}{c}\right)^2 \E_i(\O) -  k_x^2}
+  \end{split}
+  \label{eq:kz}
+\end{equation}
+%
+The dispersive dielectric constants $\E_i(\O)$ are based on a Lorentz osciallator model:
+%
+\begin{equation}
+  \E(\O) = \E^{\inf} + \frac{\O_p^2 (\E^0 - \E^{\inf})}{\O_p^2 - \O^2 + j \Gamma \O}
+  \label{eq:eps}
+\end{equation}
+%
+Here $\E^{\inf}$ and $\E^0$ are the high and zero frequency limit values of dielectric constant, $\O_p$ is the plasma resonance frequency and $\Gamma$ is the damping constant of the material. Applying boundary conditions by maintaining the continuity of tangential field components at the interface $z = 0$ yield:
+%
+\begin{subequations}
+  \begin{align}
+    E_{x1} =  E_{x2} &= E_x,
+    \label{eq:E_bc}\\
+    H_{y1} - H_{y2} &= J_s
+    \label{eq:H_bc}
+  \end{align}
+  \label{eq:bc}
+\end{subequations}
+%
+where $J_s$ is the surface current due to the sheet of charge. For a TM mode, $H$ is related to $E$ by:
+%
+\begin{equation}
+  \v H = \frac{1}{\eta_{TM}} \v{\^{n}} \times \v E
+  \label{eq:H_TM}
+\end{equation}
+%
+where $\eta_{TM}$ is the TM mode wave impedance equal to $k_{z}/{\O \E}$. The surface current $J_s$ in \eqref{eq:H_bc} is related to the electric field and surface conductivity $\sigma_s$ by Ohm's law:
+%
+\begin{equation}
+  J_s = \sigma_s E_x
+  \label{eq:Ohms}
+\end{equation}
+%
+In the microwave and terahertz regions, the surface conductivity can be approximated by a Drude-type formula:
+%
+\begin{equation}
+  \sigma_s(\O) = \frac{N_s e^2 \tau}{m^{\ast}}\frac{1}{1 + j \O \tau}
+  \label{eq:conductivity}
+\end{equation}
+%
+The parameters $e$ and $m^*$ are the effective charge and effective mass of an electron respectively, $N_s$ is  surface-charge density, and the scattering time $\tau$ is the reciprocal of damping constant $\Gamma$. The plasma frequency for the bulk material is similarly expressed as:
+%
+\begin{equation}
+  \O_{p} =  \sqrt{\frac{4 \pi e^2 N} {m^{\ast}}}.
+  \label{eq:plasma_f}
+\end{equation}
+%
+It should be noted that $N$ is the free-electron concentration which is different from $N_s$. The former quantity involves volume and is only valid for bulk materials. From Eqs. \eqref{eq:bc}-\eqref{eq:Ohms}, we obtain the TM mode dispersion relation:
+%
+\begin{equation}
+  \frac{\E_1(\O)}{k_{z1}} + \frac{\E_2(\O)}{k_{z2}} = -\frac{\sigma_s}{\O}
+  \label{eq:disp_bas}
+\end{equation}
+%
+%
+%
+%
+\begin{figure*}[!t]
+\centering
+\subfloat[Case I]{\includestandalone[width=2.5in]{figures/epsilon_gaas}
+\label{fig_first_case}}
+\hfil
+\subfloat[Case II]{\includestandalone[width=2.5in]{figures/epsilon_gaas}
+\label{fig_second_case}}
+\caption{Simulation results for the network.}
+\label{fig_sim}
+\end{figure*}
+\subsection{Homogeneous Background}
+%
+To explore the solutions of Eq. \eqref{eq:disp_bas}, we consider first a simple case where the plasma sheet is surrounded by a single medium, i.e., $\E_1 = \E_2$ assumed to be a dispersive semiconductor material. The surface conductivity in \eqref{eq:conductivity} can in this case be approximated as \cite{stern1967polarizability}:
+%
+\begin{equation}
+  \sigma_s(\O) \approx \frac{N_s e^2}{j m^{\ast}\O}.
+  \label{eq:conductivity_app}
+\end{equation}
+%
+The dispersion relation in \eqref{eq:disp_bas} can now be written as:
+%
+\begin{equation}
+  \frac{2 \E_1(\O)}{k_{z1}} \approx -\frac{N_s e^2}{j m^{\ast}\O^2}
+  \label{eq:disp_same}
+\end{equation}
+%
+By squaring \eqref{eq:disp_same} and using \eqref{eq:kz}, we obtain:
+\begin{equation}
+  k_x^2 \approx \left(\frac{\O}{c}\right)^2 \E_1(\O) \left[1 + \left(\frac{\O^2 m^{\ast}}{\pi N_s e^2}\right) \E_1(\O) \right]
+  \label{eq:disp_same}
+\end{equation}
+%
+%
+%
+%
+\subsection{Heterogeneous Background}
+
+Next we assume that region $1$ is composed of a non-dispersive material (constant dielectric) and region $2$ is a dispersive semiconductor material. The solution of \eqref{eq:disp_bas} is cumbersome involving careful complex analysis. However, when $k_x >> k_1$, a simplified solution can be written as \cite{jablan2009plasmonics}:
+\begin{equation}
+  k_x \approx - {\E_2 + 1} \frac{j \O}{\sigma_s(\O)}
+  \label{eq:disp_diff}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\section{Results}
+%
+In this section, we first show the dispersion relation of a plasma sheet with Gallium Arsenide (GaAs) as the background material. The data required to model the frequency-dependent dielectric and conductivity are listed in Table \ref{tab:data} \cite{Palik1997429}.
+%
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.3}
+\caption{$\mathrm{GaAs}$ Material Properties}
+\label{table_example}
+\centering
+\begin{tabular}{c||c}
+\hline
+$\E^{0}$ & $12.9$\\ \hline
+$\E^{\inf}$ & $11.0$ \\  \hline
+$\O_t$ & $5.52 \times 10^{13} \mathrm{rad/s}$ \\  \hline
+$\O_l$ & $5.06 \times 10^{13} \mathrm{rad/s}$ \\  \hline
+$\Gamma$ &  $4.52 \times 10^{11} \mathrm{rad/s}$ \\  \hline
+$N_s$ & $5 \times 10^{12} \mathrm{cm^{-2}}$ \\  \hline
+$m^{\ast}$ & $.063 m_e$ \\  \hline
+$\tau$ & $1.3889 \times 10^{12} \mathrm{s} $ \\  \hline
+\end{tabular}
+\label{tab:data}
+\end{table}
+%
+The complex permittivity of GaAs is plotted in Fig. \ref{fig:epsilon}. The result is shown in Fig. \ref{fig:disp_homo}.
+%
+\begin{figure}[t!]
+  \normalsize
+  \centering
+  \includestandalone[width=.5\textwidth]{figures/epsilon_gaas}
+  \caption{Complex Dielectric constant of GaAs}
+  \label{fig:epsilon}
+\end{figure}
+%
+\begin{figure}[h]
+  \normalsize
+  \centering
+  \includestandalone[width=.5\textwidth]{figures/dispersion_gaas}
+  \caption{Dispersion relation of 2DEG embedded in GaAs. Solid: real part, dashed: }
+  \label{fig:disp_homo}
+\end{figure}
+%
+
+Next, the dispersion relation for a heterostructure based environment is plotted where the region 1 is assumed free-space and region 2 is GaAs.
+\begin{figure}[h]
+  \normalsize
+  \centering
+  \includestandalone[width=.5\textwidth]{figures/dispersion_gaas_mult}
+  \caption{Dispersion relation of 2DEG embedded in GaAs}
+  \label{fig:disp_diff}
+\end{figure}
+
+\section{Conclusion}
+%
+
+%
+\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+\bibliography{mybib}
+\end{document}
