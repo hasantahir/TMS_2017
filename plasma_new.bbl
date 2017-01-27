@@ -29,6 +29,19 @@ F.~Stern, ``Polarizability of a two-dimensional electron gas,'' \emph{Physical
 M.~Jablan, H.~Buljan, and M.~Soljaci{\'c}, ``Plasmonics in graphene at infrared
   frequencies,'' \emph{Physical review B}, vol.~80, no.~24, p. 245435, 2009.
 
+\bibitem{ohtomo2004high}
+A.~Ohtomo and H.~Hwang, ``A high-mobility electron gas at the laalo3/srtio3
+  heterointerface,'' \emph{Nature}, vol. 427, no. 6973, pp. 423--426, 2004.
+
+\bibitem{mannhart2010oxide}
+J.~Mannhart and D.~Schlom, ``Oxide interfaces—an opportunity for
+  electronics,'' \emph{Science}, vol. 327, no. 5973, pp. 1607--1611, 2010.
+
+\bibitem{andress2012ultra}
+W.~F. Andress, H.~Yoon, K.~Y. Yeung, L.~Qin, K.~West, L.~Pfeiffer, and D.~Ham,
+  ``Ultra-subwavelength two-dimensional plasmonic circuits,'' \emph{Nano
+  letters}, vol.~12, no.~5, pp. 2272--2277, 2012.
+
 \bibitem{nevels2016optical}
 R.~D. Nevels and H.~T. Abbas, ``Optical nanoantennas,'' \emph{Handbook of
   Antenna Technologies}, pp. 527--566, 2016.
@@ -42,5 +55,10 @@ E.~D. Palik, ``Gallium arsenide ({G}a{A}s),'' in \emph{Handbook of Optical
 Z.~Zhang, B.~Choi, M.~Flik, and A.~C. Anderson, ``Infrared refractive indices
   of $\mathrm{LaAlO_3}$, $\mathrm{LaGaO_3}$, and $\mathrm{NdGaO_3}$,''
   \emph{JOSA B}, vol.~11, no.~11, pp. 2252--2257, 1994.
+
+\bibitem{nevels2014behavior}
+R.~D. Nevels and K.~A. Michalski, ``On the behavior of surface plasmons at a
+  metallo-dielectric interface,'' \emph{Journal of Lightwave Technology},
+  vol.~32, no.~19, pp. 3299--3305, 2014.
 
 \end{thebibliography}
