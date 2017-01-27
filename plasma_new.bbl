@@ -21,6 +21,12 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{reyren2007superconducting}
+N.~Reyren, S.~Thiel, A.~Caviglia, L.~F. Kourkoutis, G.~Hammerl, C.~Richter,
+  C.~Schneider, T.~Kopp, A.-S. R{\"u}etschi, D.~Jaccard \emph{et~al.},
+  ``Superconducting interfaces between insulating oxides,'' \emph{Science},
+  vol. 317, no. 5842, pp. 1196--1199, 2007.
+
 \bibitem{stern1967polarizability}
 F.~Stern, ``Polarizability of a two-dimensional electron gas,'' \emph{Physical
   Review Letters}, vol.~18, no.~14, p. 546, 1967.
@@ -28,10 +34,6 @@ F.~Stern, ``Polarizability of a two-dimensional electron gas,'' \emph{Physical
 \bibitem{jablan2009plasmonics}
 M.~Jablan, H.~Buljan, and M.~Soljaci{\'c}, ``Plasmonics in graphene at infrared
   frequencies,'' \emph{Physical review B}, vol.~80, no.~24, p. 245435, 2009.
-
-\bibitem{ohtomo2004high}
-A.~Ohtomo and H.~Hwang, ``A high-mobility electron gas at the laalo3/srtio3
-  heterointerface,'' \emph{Nature}, vol. 427, no. 6973, pp. 423--426, 2004.
 
 \bibitem{mannhart2010oxide}
 J.~Mannhart and D.~Schlom, ``Oxide interfaces—an opportunity for

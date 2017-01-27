@@ -120,7 +120,7 @@ g}
 
 \begin{document}
 
-\title{An Integral Equation Scheme for Plasma based Thin Sheets}
+\title{Plasma based Terahertz Devices}
 
 
 % author names and affiliations
@@ -139,6 +139,13 @@ Computer Engineering\\
 Texas A\&M University\\
 College Station, TX 77843-3128\\
 Email: nevels@ece.tamu.edu}
+\and
+\IEEEauthorblockN{Krzysztof A. Michalski}
+\IEEEauthorblockA{Department of Electrical and\\
+Computer Engineering\\
+Texas A\&M University\\
+College Station, TX 77843-3128\\
+Email: krys@ece.tamu.edu}
 }
 %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%
@@ -151,7 +158,7 @@ Email: nevels@ece.tamu.edu}
 %
 \begin{abstract}
   %\boldmath
-  We discuss the dispersion relation of a thin plasma sheet embedded in a stack of semiconductor materials. The conditions under which propagation of wave is ensured are investigated by a comparison between III-V compounds and perovskite structured oxide materials. Steps to miniature antennas and microwave devices are also proposed in light of the dispersion relation.
+  We discuss the dispersion relation of a thin sheet of plasma embedded in a heterogeneous semiconductor environment. Existence of a surface wave in the structure is investigated. The suitability of III-V compounds and perovskite structured oxide materials for plasma based terahertz devices is investigated by a comparison between prevalent structures of each kind.
 \end{abstract}
 
 \IEEEpeerreviewmaketitle
@@ -160,7 +167,7 @@ Email: nevels@ece.tamu.edu}
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%
 \section{Introduction}
-Advances in semiconductor engineering technology has changed our perception of materials existing only in a volumetric and bulk sense. Deposition processes to engineer extremely thin layers beyond the nanoscale has led to realization of truly two-dimensional materials. Graphene may be the first that springs to mind but owing to extreme difficulties in its engineering, it has created a divided opinion regards to its usage in the scientific community, although in theory it has remarkable electrical and mechanical properties. Looking beyond, there are other 2D materials that inherently exist in commonplace transistor devices due to formation of an extremely thin layer of free electrons in the stack of multilayer semiconductor substrate. The electrical properties have to be considered in a different way than traditional bulk materials where permittivity and permeability are customarily considered in a bulk sense. Most commercial electromagnetic simulation tools model thin structures with equivalent surface conductivity where the thickness is incorporated in computing the corresponding parameters.
+The past decade has seen tremendous growth in the field of two-dimensional materials and its subsequent applications in electronics. Our perception of materials existing only in volumetric sense is also changing. Modern semiconductor technology has enabled deposition of materials with thickness smaller than the nanoscale. When two slightly different semiconducting compounds are stacked in a layered fashion, the interface results in what is commonly called a heterojunction where the electrical properties vastly differ from the bulk materials. A highly charged and extremely thin region called the two-dimensional electron gas (2DEG) is consequently formed that has in some cases shown high temperature superconductivity \cite{reyren2007superconducting}. In this paper, we present the basic theory of wave propagation in the 2DEG by treating it as a thin sheet of plasma. We show that the classical electromagnetic theory can explain some of the extraordinary properties of thin materials.
 
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%
@@ -170,7 +177,7 @@ Advances in semiconductor engineering technology has changed our perception of m
 
 \subsection{Derivation of Dispersion Relation}
 %
-Consider two dielectric half-spaces of permittivity $\E_1$ and $\E_2$ respectively, separated by an infinitesimally thin sheet of charge at $z = 0$ that represents an idealized 2DEG in which the electrons are allowed to flow only in one direction. The propagation constants for the materials can be found starting with field expressions for transverse magnetic (TM) plane wave as shown in \ref{}. In region 1 ($z > 0$):
+Consider two dielectric half-space regions of permittivities $\E_1$ and $\E_2$, separated by an infinitesimally thin sheet of charge at $z = 0$ that represents an idealized 2DEG in which current flows in only one direction. The field expressions due a transverse magnetic (TM) incident plane wave in region 1 ($z > 0, \E_1$) are:
 %
 \begin{subequations}
   \begin{align}
@@ -182,7 +189,7 @@ Consider two dielectric half-spaces of permittivity $\E_1$ and $\E_2$ respective
   \label{eq:r_1}
 \end{subequations}
 %
-Similarly, in region 2 ($z < 0$), the fields are expressed as:
+Similarly, in region 2 ($z < 0, \E_2$), the fields are:
 %
 \begin{subequations}
   \begin{align}
@@ -194,7 +201,7 @@ Similarly, in region 2 ($z < 0$), the fields are expressed as:
   \label{eq:r_2}
 \end{subequations}
 %
-where $k_x$ and $k_{zi}$ for $i = 1,2$ are the $x$ and $z$ directed propagation constants respectively, related by the dispsersion equation:
+The quantities $k_x$ and $k_{zi}$ for $i = 1,2$ are the $x$ and $z$ directed propagation constants respectively, related by the dispersion equation:
 %
 \begin{equation}
   \begin{split}
@@ -204,30 +211,31 @@ where $k_x$ and $k_{zi}$ for $i = 1,2$ are the $x$ and $z$ directed propagation 
   \label{eq:kz}
 \end{equation}
 %
-\begin{equation}
-  \frac{\E_1(\O)}{k_{z1}} + \frac{\E_2(\O)}{k_{z2}} = -\frac{\sigma_s}{\O}
-  \label{eq:disp_bas}
-\end{equation}
+where $k_i$ is the wavenumber of the corresponding region.
+% \begin{equation}
+%   \frac{\E_1(\O)}{k_{z1}} + \frac{\E_2(\O)}{k_{z2}} = -\frac{\sigma_s}{\O}
+%   \label{eq:disp_bas}
+% \end{equation}
 %
 \begin{figure*}[!t]
-\centering
-\subfloat[Case A]{\includestandalone[width=2.5in]{figures/dispersion_gaas}
-\label{fig:disp_Ga}}
-\hfil
-\subfloat[Case B]{\includestandalone[width=2.5in]{figures/dispersion_sto}
-\label{fig:disp_Sto}}
+  \centering
+  \subfloat[Case A]{\includestandalone[width=2.5in]{figures/dispersion_gaas}
+  \label{fig:disp_Ga}}
+  \hfil
+  \subfloat[Case B]{\includestandalone[width=2.5in]{figures/dispersion_sto}
+  \label{fig:disp_Sto}}
   \caption{Dispersion relation of 2DEG embedded in region 2 of the heterostructure. Solid line: real part, dashed line: imaginary part}
-\label{fig:disp}
+  \label{fig:disp}
 \end{figure*}
 %
-The dispersive dielectric constants $\E_i(\O)$ are based on a Lorentz osciallator model:
+The dispersive dielectric constants $\E_i(\O)$ are based on a Lorentz oscillator model:
 %
 \begin{equation}
-  \E(\O) = \E^{\inf} + \prod_i\frac{\O_{li}^2 - \O^2 - j\gamma_i \O}{\O_{ti}^2 - \O^2 - j\gamma_i \O}
+  \E(\O) = \E^{\inf} + \prod_i\frac{\O_{li}^2 - \O^2 - j\gamma_{li} \O}{\O_{ti}^2 - \O^2 - j\gamma_{ti} \O}
   \label{eq:eps}
 \end{equation}
 %
-where the $i$ is the number of resonances, $\E^{\inf}$ is the high frequency limit value of dielectric constant, $\O_{ti}$ and $\O_{li}$ the $i$-th low and high phonon frequencies and, $\gamma_{i}$ the damping constant of the material. Applying boundary conditions by maintaining the continuity of tangential field components at the interface $z = 0$ yield:
+where $i$ is the number of resonances, $\E^{\inf}$ is the high frequency limit value of dielectric constant, $\O_{ti}$ and $\O_{li}$ are the $i$-th low and high phonon frequencies and the corresponding $\gamma$ is the damping constant. Applying boundary conditions by maintaining the continuity of tangential field components at the interface $z = 0$ yield:
 %
 \begin{subequations}
   \begin{align}
@@ -246,7 +254,7 @@ where $J_s$ is the surface current due to the sheet of charge. For a TM mode, $H
   \label{eq:H_TM}
 \end{equation}
 %
-where $\eta_{TM}$ is the TM mode wave impedance equal to $k_{z}/{\O \E}$. The surface current $J_s$ in \eqref{eq:H_bc} is related to the electric field and surface conductivity $\sigma_s$ by Ohm's law:
+where $\eta_{TM}$ is the TM mode wave impedance equal to $k_{z}/{\O \E}$. Since the current flow is in one-direction, the surface current $J_s$ in \eqref{eq:H_bc} is related to the electric field and surface conductivity $\sigma_s$ by Ohm's law:
 %
 \begin{equation}
   J_s = \sigma_s E_x
@@ -260,16 +268,7 @@ In the microwave and terahertz regions, the surface conductivity can be approxim
   \label{eq:conductivity}
 \end{equation}
 %
-The parameters $e$ and $m^*$ are the effective charge and effective mass of an electron respectively, $N_s$ is  surface-charge density, and the scattering time $\tau$ is the reciprocal of damping constant $\Gamma$.
-% The plasma frequency for the bulk material is similarly expressed as:
-% %
-% \begin{equation}
-%   \O_{p} =  \sqrt{\frac{4 \pi e^2 N} {m^{\ast}}}.
-%   \label{eq:plasma_f}
-% \end{equation}
-% %
-% It should be noted that $N$ is the free-electron concentration which is different from $N_s$. The former quantity involves volume and is only valid for bulk materials.
-From Eqs. \eqref{eq:bc}-\eqref{eq:Ohms}, we obtain the TM mode dispersion relation:
+where $e$ and $m^*$ are the effective charge and mass of an electron respectively, $N_s$ is the surface-charge density, and the scattering time $\tau$ is the reciprocal of damping constant $\gamma_l$ for the low phonon frequency at first resonance. From Eqs. \eqref{eq:bc}-\eqref{eq:Ohms}, we obtain the TM mode dispersion relation:
 %
 \begin{equation}
   \frac{\E_1(\O)}{k_{z1}} + \frac{\E_2(\O)}{k_{z2}} = -\frac{\sigma_s}{\O}
@@ -283,14 +282,15 @@ In the terahertz region, the surface conductivity \eqref{eq:conductivity} can ca
   \label{eq:conductivity_app}
 \end{equation}
 %
-For a homogeneous environment where $\E_1 = \E_2$, Eq. \eqref{eq:disp_bas}, can therefore be written in a simplified form as:
+When the 2DEG is in a homogeneous environment. i.e., $\E_1 = \E_2$, Eq. \eqref{eq:disp_bas}, is simplified into:
 %
 \begin{equation}
   \frac{2 \E_1(\O)}{k_{z1}} \approx -\frac{N_s e^2}{j m^{\ast}\O^2}
   \label{eq:disp_same}
 \end{equation}
 %
-Solving for the propagation constant $k_x$, using \eqref{eq:kz} by squaring \eqref{eq:disp_same} yields:
+From \eqref{eq:disp_same} and \eqref{eq:kz}, we obtain a solution for the propagation constant $k_x$:
+%
 \begin{equation}
   k_x^2 \approx \left(\frac{\O}{c}\right)^2 \E_1(\O) \left[1 + \left(\frac{2 \O^2}{\O_p}\right)^2 \E_1(\O) \right]
   \label{eq:disp_same_final}
@@ -303,32 +303,33 @@ where $\O_p$ is the 2DEG plasma frequency given expressed as:
   \label{eq:plasma_f}
 \end{equation}
 %
+where $c$ is the speed of light.
 \begin{figure*}[!t]
-\centering
-\subfloat[Case A]{\includestandalone[width=2.5in]{figures/epsilon_gaas}
-\label{fig:eps_Ga}}
-\hfil
-\subfloat[Case B]{\includestandalone[width=2.5in]{figures/epsilon_sto}
-\label{fig:eps_Sto}}
+  \centering
+  \subfloat[Case A]{\includestandalone[width=2.5in]{figures/epsilon_gaas}
+  \label{fig:eps_Ga}}
+  \hfil
+  \subfloat[Case B]{\includestandalone[width=2.5in]{figures/epsilon_sto}
+  \label{fig:eps_Sto}}
   \caption{Dielectric Functions of the materials in bulk form. Solid line: real part, dashed line: imaginary part}
-\label{fig:eps}
+  \label{fig:eps}
 \end{figure*}
 %
-In a semiconductor heterostructure environment, the solution of \eqref{eq:disp_bas_two} is cumbersome requiring careful complex root search analysis tools. However, when the propagation constant $k_x$ is much larger than the material wave-vectors $k_i$, which is the case for a non-radiating wave, the solution can be accurately approximated as \cite{jablan2009plasmonics}:
+For a semiconductor heterojunction environment, an exact solution of \eqref{eq:disp_bas_two} is often cumbersome due to the complex arguments of the square root function. However, when the propagation constant $k_x$ is much larger than the material wave-vectors $k_i$, which is the case for a non-radiating wave, the solution can be accurately approximated as \cite{jablan2009plasmonics}:
 \begin{equation}
   k_x \approx - {\E_1(\O) + \E_2(\O)} \frac{j \O}{\sigma_s(\O)}
   \label{eq:disp_diff}
 \end{equation}
 %
 \begin{figure*}[!t]
-\centering
-\subfloat[Case A]{\includestandalone[width=2.5in]{figures/plength_gaas_mult_f}
-\label{fig:pl_Ga}}
-\hfil
-\subfloat[Case B]{\includestandalone[width=2.5in]{figures/plength_sto_mult_f}
-\label{fig:pl_Sto}}
+  \centering
+  \subfloat[Case A]{\includestandalone[width=2.5in]{figures/plength_gaas_mult_f}
+  \label{fig:pl_Ga}}
+  \hfil
+  \subfloat[Case B]{\includestandalone[width=2.5in]{figures/plength_sto_mult_f}
+  \label{fig:pl_Sto}}
   \caption{Propagation Lengths of the 2DEG plasma waves}
-\label{fig:pl}
+  \label{fig:pl}
 \end{figure*}
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%
@@ -336,7 +337,7 @@ In a semiconductor heterostructure environment, the solution of \eqref{eq:disp_b
 %%%%%%%%%%%%%%%%
 \section{Results and Discussion}
 %
-In this section, we compare two different 2DEGs formed at the heterojunction of, first in a III-V compound and second in a perovskite structured oxide interface. We consider particular the first to be a Gallium Arsenide/Aluminum Gallium Arsenide (GaAs/AlGaAs) case which has been at the forefront in manufacturing microwave frequency devices. A surface charge density $N_s$ of $10^{11} \mathrm{cm}^{-2}$ is assumed. The second example involves a Strontium Titanate/ Lanthanium Aluminum Oxide based 2DEG abbreviated as STO/LAO, that has attracted a lot of interest in the scientific community ever since its discovery in the last decade \cite{ohtomo2004high}, owing to its remarkable electrical properties mainly due to very high electron mobility and metal-like free electron concentration which is taken as $10^{14} \mathrm{cm}^{-2}$ \cite{mannhart2010oxide}. From here onwards, we identify the structures discussed above by cases A and B respectively. The dispersion relations for both cases are shown in Fig. \ref{fig:disp}. The lower part of the curve lies in the non-radiative plasmon region followed by an anomalous dispersion region and above that a Brewster mode radiative region. The plasmon region lies to the right of the light line and therefore, it is a slow wave region. Of particular significance is the much shorter wavelength of plasmons than light that prevents them to radiate from a flat planar surface. In other words, the plasma waves are tightly confined to the 2DEG where they propagate along the interface. This mechanism has led to waveguiding structures that have miniaturized dimensions \cite{andress2012ultra}. The propagation constant in case B is at least an order greater than for case B as shown in Fig. \ref{fig:disp}. However, the dispersion relation does not indicate the existence of a propagating surface wave for which the following condition is necessary \cite{nevels2016optical}:
+In this section, we compare two different 2DEGs formed at the heterojunction of first III-V compounds and, second in a perovskite structured oxide interface. We particularly consider a Gallium Arsenide/Aluminum Gallium Arsenide (GaAs/AlGaAs) case which is most commonly used in microwave devices. A surface charge density $N_s$ of $10^{11} \mathrm{cm}^{-2}$ with effective mass of $.07 m_e$ is assumed where $m_e$ is the electron mass. The latter involves a Strontium Titanate/ Lanthanum Aluminate based 2DEG abbreviated as STO/LAO with a metal-like carrier density of $10^{14} \mathrm{cm}^{-2}$ and effective mass of $3 m_e$ \cite{mannhart2010oxide}. From here onwards, we identify the structures discussed above by cases A and B respectively. The dispersion relations for both cases are shown in Fig. \ref{fig:disp} where the 2DEG is embedded in region 2. The lower part of the curve lies in the non-radiative plasmon region followed by an anomalous dispersion region and above that a Brewster mode radiative region. The plasmon region lies to the right of the light line and therefore, it is a slow wave region. Of particular significance is the subsequently much shorter wavelength of plasmons than light that prevents them to radiate from a flat planar surface. In other words, the plasma waves are tightly confined to the 2DEG where they propagate along the interface. This mechanism has led to waveguiding structures with highly miniaturized dimensions \cite{andress2012ultra}. As seen in Fig. \ref{fig:disp}, the propagation constant in case B is at least an order greater than case B. This is due to the higher concentration of surface charges. To investigate the existence of surface waves, the following condition is necessary \cite{nevels2016optical}:
 %
 \begin{equation}
   \E_1(\O) \cdot \E_2(\O) < 0
@@ -348,24 +349,24 @@ In this section, we compare two different 2DEGs formed at the heterojunction of,
 %   \label{eq:condtions}
 % \end{equation}
 %
-To investigate this, the dielectric functions of the materials used are shown in Fig. \ref{fig:eps} computed from \eqref{eq:E_bc}. The material parameters are taken from \cite{Palik1997429, zhang1994infrared}. As an example, GaAs parameters are listed in Table. \ref{tab:data}. In the frequency range of $3-5 \mathrm{THz}$, the necessary condition \eqref{eq:condtions} holds true only for case B. This suggests that a 2DEG based on materials used in case B is an excellent choice for guiding devices.
+For this purpose, the dielectric functions of the materials used are shown in Fig. \ref{fig:eps} calculated from \eqref{eq:E_bc}. The material parameters for $\mathrm{GaAs}$, $\mathrm{Al_xGa_{1-x}As}$ with $x=.54$ and $\mathrm{STO}$ are taken from \cite{Palik1997429}, whereas the data for LAO is taken from \cite{zhang1994infrared}. As an example, GaAs parameters are listed in Table. \ref{tab:data}. It can be observed in Fig. \ref{fig:eps_Sto}, that within the frequency range of $3-5 \mathrm{THz}$, the necessary condition \eqref{eq:condtions} holds true only for case B. This suggests that a 2DEG based on materials used in case B supports surface waves and is a better choice for guiding devices.
 %
 \begin{table}[h]
-\renewcommand{\arraystretch}{1.3}
-\caption{$\mathrm{GaAs}$ Material Properties}
-\label{table_example}
-\centering
-\begin{tabular}{c||c}
-\hline
-$\E^{0}$ & $12.9$\\ \hline
-$\E^{\inf}$ & $11.0$ \\  \hline
-$\O_t$ & $5.52 \times 10^{13} \mathrm{rad/s}$ \\  \hline
-$\O_l$ & $5.06 \times 10^{13} \mathrm{rad/s}$ \\  \hline
-$\Gamma$ &  $4.52 \times 10^{11} \mathrm{rad/s}$ \\  \hline
-$m^{\ast}$ & $.063 m_e$ \\  \hline
-$\tau$ & $1.3889 \times 10^{-12} \mathrm{s} $ \\  \hline
-\end{tabular}
-\label{tab:data}
+  \renewcommand{\arraystretch}{1.3}
+  \caption{$\mathrm{GaAs}$ Material Properties}
+  \label{table_example}
+  \centering
+  \begin{tabular}{c||c}
+    \hline
+    $\E^{0}$ & $12.9$\\ \hline
+    $\E^{\inf}$ & $11.0$ \\  \hline
+    $\O_t$ & $5.52 \times 10^{13} \mathrm{rad/s}$ \\  \hline
+    $\O_l$ & $5.06 \times 10^{13} \mathrm{rad/s}$ \\  \hline
+    $\Gamma$ &  $4.52 \times 10^{11} \mathrm{rad/s}$ \\  \hline
+    $m^{\ast}$ & $.063 m_e$ \\  \hline
+    $\tau$ & $1.3889 \times 10^{-12} \mathrm{s} $ \\  \hline
+  \end{tabular}
+  \label{tab:data}
 \end{table}
 %
 The complex permittivity of GaAs is plotted in Fig. \ref{fig:epsilon} where the real part changes sign at the plasma frequency. The result is shown in Fig. \ref{fig:disp_homo}. The lower part of the curve lies in the non-radiative plasmon region followed by an anomalous dispersion region and above that a Brewster mode radiative region. The plasmon region lies to the right of the light line and therefore, it is a slow wave region. Of particular significance is the much shorter wavelength of plasmons than light preventing from radiating from a planar surface. A limiting value of the wavelength confinement can be estimated from:
@@ -375,7 +376,7 @@ The complex permittivity of GaAs is plotted in Fig. \ref{fig:epsilon} where the 
   \label{eq:wave_refine}
 \end{equation}
 %
-where $\lambda_t = 2\pi c/{\O_t}$ is the start wavelength of the dispersiive region that corresponds to the first phonon resonance in the dielectric functions shown in Fig. \ref{fig:eps} dispersive region. We have calculated the ratios of $1.32$ and $27.3$ for cases A and B respectively.
+where $\lambda_t = 2\pi c/{\O_t}$ is the start wavelength of the dispersive region that corresponds to the first phonon resonance in the dielectric functions shown in Fig. \ref{fig:eps} dispersive region. We have calculated the ratios of $1.32$ and $27.3$ for cases A and B respectively.
 
 The decay of the plasma wave along the interface is determined by the propagation length defined as:
 %
@@ -384,11 +385,11 @@ The decay of the plasma wave along the interface is determined by the propagatio
   \label{eq:plength}
 \end{equation}
 %
-which is plotted in Fig. \ref{fig:pl}. although the plasma waves travel farther in GaAs based 2DEG, the distance in an STO based 2DEG is still very large considering the dimensions of devices at terahertz frequency range. This behavior is similar to surface plasmons found at metal-dielectric interfaces at optical frequencies \cite{nevels2014behavior}. The lower value can be alluded to the large dielectric constant of STO. The behavior of
-
+which is plotted in Fig. \ref{fig:pl}. Although the plasma waves travel farther in GaAs based 2DEG, the lower distance in an STO based 2DEG, which can be attributed to higher dielectric constant of STO is still very large considering the dimensions of devices at terahertz frequency range. This behavior is similar to surface plasmons found at metal-dielectric interfaces at optical frequencies \cite{nevels2014behavior}.
+%
 \section{Conclusion}
 %
-In this paper, we have have presented basic theory of plasma wave propagation in the 2DEG. A comparison between III-V class of materials and perovskite based oxides has been done by an example. The results show that the latter is a better option primarily due to its exceptional two-dimensional properties. 
+In this paper, we have presented the basic theory of plasma wave propagation in the 2DEG. A comparison between III-V class of materials and perovskite based oxides has been done by an example. The wave propagation phenomenon has been analysed and the result show that oxide-based materials outperform traditional III-V compounds in the terahertz frequency range.
 %
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
